@@ -17,7 +17,7 @@ const thirdTaskFilterEven = (arr) => {
 
 // Task 1.4
 const fourthTaskCheckHasLowerThanTen = (arr) => {
-  return arr.some((el)=> el < 10);
+  return arr.some((el) => el < 10);
 }
 
 // Task 1.5
