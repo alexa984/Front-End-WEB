@@ -29,8 +29,8 @@ generateTableHead = (table, columnNames) => {
   }
 }
 
-function generateTable(table, content) {
-  for (let element of content) {
+generateTable = (table, content) => {
+  for (const element of content) {
     let row = table.insertRow();
     for (key in element) {
       let cell = row.insertCell();
