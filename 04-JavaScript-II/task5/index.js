@@ -1,8 +1,8 @@
 solve = (sColor1, sColor2) => {
-  const paragraphs =  document.getElementsByTagName('p');
-  const headerTitles =  document.getElementsByClassName('headertitle');
+  const paragraphs = document.getElementsByTagName("p");
+  const headerTitles = document.getElementsByClassName("headertitle");
 
-  document.title = `${paragraphs.length} параграфа, ${headerTitles.length} елемента с клас <headertitle>`
+  document.title = `${paragraphs.length} параграфа, ${headerTitles.length} елемента с клас <headertitle>`;
 
   for (let element of paragraphs) {
     element.style.background = sColor1;
@@ -11,8 +11,7 @@ solve = (sColor1, sColor2) => {
   for (let element of headerTitles) {
     element.style.background = sColor2;
   }
-
-}
+};
 const c1 = "#ffda96";
 const c2 = "#d3b3f5";
 
