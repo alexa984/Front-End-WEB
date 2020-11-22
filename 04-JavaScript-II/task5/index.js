@@ -1,11 +1,19 @@
-// Условие:
-// Дадена е страницата OpenUI5.html.
-// Създайте функция, която приема един 2 параметъра (sColor1, sColor2) и извежда
-// броя на всички:
-// - <p> тагове
-// - всички елементи с клас "headertitle"
-// Резултата да се записва в заглавието на текущия прозорец, например "33 параграфа,
-// 12 елемента с клас <headertitle>"
-// В допълнение, за всички намерени <p> елементи, да бъде сменен background-a цвета
-// с подадения sColor1, а за елементите, съдържащи клас "headertitle", background
-// цвета да е sColor2;
+solve = (sColor1, sColor2) => {
+  const paragraphs =  document.getElementsByTagName('p');
+  const headerTitles =  document.getElementsByClassName('headertitle');
+
+  document.title = `${paragraphs.length} параграфа, ${headerTitles.length} елемента с клас <headertitle>`
+
+  for (let element of paragraphs) {
+    element.style.background = sColor1;
+  }
+
+  for (let element of headerTitles) {
+    element.style.background = sColor2;
+  }
+
+}
+const c1 = "#ffda96";
+const c2 = "#d3b3f5";
+
+document.addEventListener("DOMContentLoaded", () => solve(c1, c2));
