@@ -19,14 +19,16 @@ body {
 .flex-container {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  margin: 0 auto;
+  width: 90%;
+  margin: 5px auto;
 }
 
 .flex-item {
   background-color: azure;
   padding: 10px;
   flex: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 #feed-panel{
@@ -38,6 +40,7 @@ body {
   .flex-container {
     flex-direction: row;
     max-width: 73rem;
+    margin: 0 auto;
   }
   #profile-panel{
     max-width: 18rem;
@@ -45,4 +48,12 @@ body {
   .flex-item {
     margin: 5px;
   }
+}
+#profile-panel {
+  align-items: center;
+  font-size: 16px;
+}
+
+#profile-picture {
+  width: 30%;
 }
