@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif !important;
+}
+
+body {
+  font-size: 16px;
+  background: rgb(186, 174, 248);
+  background-image: linear-gradient(
+    to right,
+    #B19AFE 0%,
+    #A2F2F1 100%
+  );
+  min-height: 100vh;
+  padding: 0px;
+  margin: 0px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.flex-item {
+  background-color: azure;
+  padding: 10px;
+  flex: 100%;
+}
+
+#feed-panel{
+  max-width: 55rem;
+}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media only screen and (min-width: 890px) {
+  .flex-container {
+    flex-direction: row;
+    max-width: 73rem;
+  }
+  #profile-panel{
+    max-width: 18rem;
+  }
+  .flex-item {
+    margin: 5px;
+  }
+}
