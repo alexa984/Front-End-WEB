@@ -186,3 +186,13 @@ section {
   width: 120px;
   margin-top: 1rem;
 }
+
+.like, .dislike {
+  display: flex;
+  align-items: center;
+}
+
+.like > p, .dislike > p {
+  display: inline;
+  margin: 0 5px;
+}
