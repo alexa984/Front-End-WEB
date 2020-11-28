@@ -11,10 +11,66 @@
 <body>
   <div class="flex-container">
     <div class="flex-item" id="profile-panel">
-      <img src="avatar.png" id="profile-picture"/>
+      <img src="avatar.png" id="profile-picture" />
       <p>Alexandra Yovkova</p>
+      <div class="actions">
+        <div id="activity-container">
+          <div class="activity">Posts <p>1</p>
+          </div>
+          <div class="activity">Reactions <p>8</p>
+          </div>
+        </div>
+        <button class="rounded" id="logout-btn">Log Out</button>
+      </div>
     </div>
-    <div class="flex-item" id="feed-panel"></div>
+    <div class="flex-item" id="feed-panel">
+      <div id="input-header">
+        <img src="avatar.png" />
+        <input type="text" placeholder="Say something" class="rounded" id="input-post" />
+      </div>
+      <section>
+        <img src="./avatar.png" class="author-post-image" />
+        <div class="post">
+          <div class="post-header">
+            <div class="post-info">
+              <p class="author-name">Elena Ivanova</p>
+              <p class="post-timestamp"> • 0 seconds ago</p>
+            </div>
+            <img src="./close.svg" class="icon-btn" />
+          </div>
+          <div class="post-body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempus elit nec dui posuere, a
+            tristique sapien imperdiet. Curabitur ultricies non diam et luctus. Donec lectus enim, sodales mollis elit
+            eu, pharetra aliquam dolor. Maecenas nunc velit, tristique in ligula sed, aliquam molestie augue. Vestibulum
+            tempus pellentesque mollis. Duis ipsum massa, rhoncus eget nisi id, dapibus pellentesque nibh. Nulla
+            venenatis mauris ac fermentum vestibulum.
+          </div>
+          <div class="post-actions">
+            <div class="like"><img src="./thumbs-up.svg" class="icon-btn" />5</div>
+            <div class="dislike"><img src="./thumbs-down.svg" class="icon-btn" />3</div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <img src="./avatar.png" class="author-post-image" />
+        <div class="post">
+          <div class="post-header">
+            <div class="post-info">
+              <p class="author-name">Mariq Georgieva</p>
+              <p class="post-timestamp"> • 0 seconds ago</p>
+            </div>
+            <img src="./close.svg" class="icon-btn" />
+          </div>
+          <div class="post-body">
+            Hello, world!
+          </div>
+          <div class="post-actions">
+            <div class="like"><img src="./thumbs-up.svg" class="icon-btn" />5</div>
+            <div class="dislike"><img src="./thumbs-down.svg" class="icon-btn" />3</div>
+          </div>
+        </div>
+      </section>
+    </div>
   </div>
 </body>
 

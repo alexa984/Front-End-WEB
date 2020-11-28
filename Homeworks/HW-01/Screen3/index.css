@@ -16,16 +16,19 @@ body {
   margin: 0px;
 }
 
+input:focus, button:focus {
+  outline: none;
+}
+
 .flex-container {
   display: flex;
   flex-direction: column;
   width: 90%;
-  margin: 5px auto;
+  margin: 10px auto;
 }
 
 .flex-item {
   background-color: azure;
-  padding: 10px;
   flex: 100%;
   display: flex;
   flex-direction: column;
@@ -35,18 +38,22 @@ body {
   max-width: 55rem;
 }
 
+#feed-panel > section {
+  padding: 20px 30px;
+}
+
 /* Responsive layout - makes a one column-layout instead of two-column layout */
 @media only screen and (min-width: 890px) {
   .flex-container {
     flex-direction: row;
     max-width: 73rem;
-    margin: 0 auto;
   }
   #profile-panel{
     max-width: 18rem;
   }
   .flex-item {
     margin: 5px;
+    margin-bottom: auto;
   }
 }
 #profile-panel {
@@ -56,4 +63,126 @@ body {
 
 #profile-picture {
   width: 30%;
+  margin-top: 1rem;
+}
+
+.rounded {
+  border-radius: 30px;
+}
+
+#input-post {
+  border: 1px  solid #e3e4e3;
+  padding: 10px 15px;
+  width: 100%;
+  margin-left: 20px;
+  background-image: url(./comment.svg);
+  background-repeat: no-repeat;
+  background-position: 95%;
+  background-size: 18px;
+}
+#input-post::placeholder{
+  color: #54bdd6;
+}
+
+section {
+  border-top: 1px solid #e3e4e3;
+  display: flex;
+  min-height: 7rem;
+  font-size: 0.875rem;
+}
+
+#input-header {
+  display: flex;
+  padding: 10px 30px;
+  height: 3rem;
+}
+
+#input-header img{
+  align-self: center;
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+.actions {
+  display: flex;
+  width: 100%;
+  font-size: 0.75rem;
+  padding: 10px 20px;
+  justify-content: space-between;
+  background-color: rgb(240, 248, 248);
+}
+
+#activity-container {
+  display: flex;
+}
+
+.activity {
+  color: #848694;
+  font-weight: bold;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 1.2em;
+}
+
+.activity p {
+  margin: 0;
+  font-size: 1.125rem;
+  color: #54bdd6;
+}
+
+#logout-btn {
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #54bdd6;
+  color: #54bdd6;
+  font-weight: bold;
+}
+
+.author-post-image {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 15px;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-info {
+  display: flex;
+}
+
+.post-info > * {
+  margin: 0;
+}
+
+.post {
+  flex: 100%;
+}
+
+.author-name {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.post-timestamp {
+  color: #848694;
+}
+
+.post-body {
+  margin-top: 0.5rem;
+}
+
+.icon-btn {
+  width: 20px;
+  height: 20px;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  width: 120px;
+  margin-top: 1rem;
 }
