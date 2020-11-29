@@ -1,5 +1,5 @@
 validateEmail = () => {
-  let form = document.getElementById("register-form");
+  let form = document.getElementsByClassName("auth-form")[0];
   const email = form["email"].value;
 
   email.required = true;
@@ -13,18 +13,19 @@ validateEmail = () => {
   if (!(email.includes('.') && email.includes('@')) ) {
     errors.innerHTML += "Email field should contain '@' and '.' <br />"
   }
-  // if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-  //   errors.innerHTML += "Email field is invalid. <br />";
-  // }
+  if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    errors.innerHTML += "Email field is invalid. <br />";
+  }
 
   if (errors.innerHTML != "") {
     return false;
   }
+  errors.innerHTML = "";
   return true;
 };
 
 validatePassword = () => {
-  let form = document.getElementById("register-form");
+  let form = document.getElementsByClassName("auth-form")[0];
   const password = form['password'].value;
 
   let errors = document.getElementById('errors');
@@ -44,19 +45,36 @@ validatePassword = () => {
   if (errors.innerHTML != "") {
     return false;
   }
+  errors.innerHTML = "";
   return true;
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
   document
-    .getElementById("submit-btn")
-    .addEventListener("click", function (event) {
+    .addEventListener("submit", function (event) {
       event.preventDefault();
       const emailValid = validateEmail();
       const passwordValid = validatePassword();
 
       if (emailValid && passwordValid) {
-        // Create registration
+        const currentPage = window.location.href.split("/").pop();
+        if (currentPage == "register.html"){
+          const form = document.getElementById("register-form");
+          const email = form["email"].value;
+          const username = form["username"].value;
+          const password = form["password"].value;
+
+          window.auth.register(username, email, password, (success, errCode, msg) => {
+            if(success) {
+              alert("You have successfully registered!");
+            } else {
+              alert(`Error ${errCode}. ${msg}`);
+            }
+          })
+
+        } else if (currentPage == "index.html") {
+          alert("You have sucessfully logged in!");
+        }
       }
     });
 });
