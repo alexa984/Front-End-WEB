@@ -56,9 +56,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
       const emailValid = validateEmail();
       const passwordValid = validatePassword();
 
+      const redirectUrl = window.location.href.split("/").slice(0, -1).join('/') + '/posts.html';
+
       if (emailValid && passwordValid) {
         const currentPage = window.location.href.split("/").pop();
         if (currentPage == "register.html"){
+
           const form = document.getElementById("register-form");
           const email = form["email"].value;
           const username = form["username"].value;
@@ -66,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
           window.auth.register(username, email, password, (success, errCode, msg) => {
             if(success) {
+              document.location.href = redirectUrl;
               alert("You have successfully registered!");
             } else {
               alert(`Error ${errCode}. ${msg}`);
@@ -73,7 +77,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
           })
 
         } else if (currentPage == "index.html") {
-          alert("You have sucessfully logged in!");
+          const form = document.getElementById("login-form");
+          const email = form["email"].value;
+          const password = form["password"].value;
+
+          window.auth.login(email, password, (success, errCode, msg) => {
+            if(success) {
+              document.location.href = redirectUrl;
+              alert("You have successfully logged in!");
+            } else {
+              alert(`Error ${errCode}. ${msg}`);
+            }
+          })
         }
       }
     });
