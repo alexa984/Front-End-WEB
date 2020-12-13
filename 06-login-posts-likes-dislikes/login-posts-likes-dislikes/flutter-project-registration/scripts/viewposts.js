@@ -73,10 +73,27 @@
 
   tweetsDB.on("child_added", (data) => {
     // Logic when new tweet is added
-    var newPost = document.createElement("div");
+		let newPost = document.createElement("div");
+		newPost.classList.add('post');
     newPost.innerHTML = post(data).trim();
 
-    postContainer.appendChild(newPost);
+		postContainer.appendChild(newPost);
+
+		newPost.querySelector('.like-btn').addEventListener('click', event => {
+			tweet.incrementLikes(event.target.getAttribute('data-id'));
+		});
+		newPost.querySelector('.dislike-btn').addEventListener('click', event => {
+			tweet.incrementLikes(event.target.getAttribute('data-id'));
+		});
+
+		newPost.querySelector('.post-close').addEventListener('click', event => {
+			const postId = event.target.getAttribute('data-id');
+			tweet.delete(postId);
+			document.getElementById('post-container').removeChild(event.target.parentNode.parentNode);
+
+			// TODO: Update user's posts and likes number
+		})
+
   });
 
   tweetsDB.on("child_changed", (data) => {
