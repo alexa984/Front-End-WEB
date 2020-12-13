@@ -10,7 +10,7 @@
   const postContainer = document.getElementById("post-container");
   const newPost = document.getElementById("new-post");
   const post = (data) => {
-    const state = data.val();
+		const state = data.val();
 
     return `<figure class="profile-avatar post-section-avatar">
               <img src="images/avatar.png" alt="BP" class="profile-image">
@@ -50,13 +50,13 @@
   newPost.addEventListener("submit", (event) => {
     // Logic when posting new tweet
     event.preventDefault();
-    window.tweet.post(newPost["new-post-text"].value);
+    tweet.post(newPost["new-post-text"].value);
   });
 
   firebase.auth().onAuthStateChanged((user) => {
     // Update profile posts information
 		validateUser(user);
-		let userRef = window.auth.getUserStats(user.uid);
+		let userRef = auth.getUserStats(user.uid);
 
     userRef.on('value', (snapshot) =>{
 			const data = snapshot.val() || {
@@ -88,16 +88,22 @@
 
 		newPost.querySelector('.post-close').addEventListener('click', event => {
 			const postId = event.target.getAttribute('data-id');
+			// tweet.getData(postId).once('value', (snapshot) =>{
+			// 	for (const i in (1, snapshot.likes)) {
+			// 		tweet.decrementLikes(postId);
+			// 	})
+			// });
 			tweet.delete(postId);
 			document.getElementById('post-container').removeChild(event.target.parentNode.parentNode);
-
-			// TODO: Update user's posts and likes number
 		})
 
   });
 
   tweetsDB.on("child_changed", (data) => {
-    // Like / Dislike logic here
+		// Like / Dislike logic here
+		// console.log(data.val(), data.key);
+		let changedPost = document.getElementById(data.key);
+		// changedPost
   });
 
   function validateUser() {

@@ -187,6 +187,13 @@
 		dbRef.remove();
 	};
 
+	const getData = id => {
+		const db = firebase.database();
+		const dbRef = db.ref('tweets/' + id);
+
+		return dbRef;
+	};
+
 	const getUserStats = id => {
 		const db = firebase.database();
 		return db.ref('users/' + id);
@@ -202,6 +209,7 @@
 	this.tweet = {
 		post: postTweet,
 		delete: deleteTweet,
+		getData: getData,
 		incrementLikes: incrementLikes,
 		decrementLikes: decrementLikes,
 		incrementDislikes: incrementDislikes,
